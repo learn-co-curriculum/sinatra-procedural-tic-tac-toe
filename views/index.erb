@@ -1,0 +1,25 @@
+<h1>Welcome to Tic Tac Toe</h1>
+
+<form action="/turn" method="post">
+<table>
+  <tr>
+    <td><input type="text" name="0" value="<%= @board[0] %>" <%= "readonly" if (@board[0] != "" && @board[0]) %>></td>
+    <td><input type="text" name="1" value="<%= @board[1] %>" <%= "readonly" if (@board[1] != "" && @board[1]) %>></td> 
+    <td><input type="text" name="2" value="<%= @board[2] %>" <%= "readonly" if (@board[2] != "" && @board[2]) %>></td>
+  </tr>
+  <tr>
+    <td><input type="text" name="3" value="<%= @board[3] %>" <%= "readonly" if (@board[3] != "" && @board[3]) %>></td>
+    <td><input type="text" name="4" value="<%= @board[4] %>" <%= "readonly" if (@board[4] != "" && @board[4]) %>></td> 
+    <td><input type="text" name="5" value="<%= @board[5] %>" <%= "readonly" if (@board[5] != "" && @board[5]) %>></td>
+  </tr>
+  <tr>
+    <td><input type="text" name="6" value="<%= @board[6] %>" <%= "readonly" if (@board[6] != "" && @board[6]) %>></td>
+    <td><input type="text" name="7" value="<%= @board[7] %>" <%= "readonly" if (@board[7] != "" && @board[7]) %>></td> 
+    <td><input type="text" name="8" value="<%= @board[8] %>" <%= "readonly" if (@board[8] != "" && @board[8]) %>></td>
+  </tr>
+
+  <!-- <input type="hidden" name="original_board" value="<%#= CGI::escapeHTML(@board.to_s) %>" /> -->
+</table>
+
+<p><input type="submit" value="Submit Turn"></p>
+</form>

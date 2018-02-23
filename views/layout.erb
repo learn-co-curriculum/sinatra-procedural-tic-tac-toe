@@ -7,15 +7,19 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="/stylesheets/app.css">
-        <!-- <link rel="stylesheet" href="/stylesheets/terminal.css"> -->
+<!--         <link rel="stylesheet" href="/stylesheets/app.css">
+ -->        <link rel="stylesheet" href="/stylesheets/terminal.css">
         <script>
-          var currentToken = "<%= @game.current_player if @game && @game.respond_to?(:current_player) %>"
+          var currentToken = "<%= @current_player %>"
         </script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="/javascripts/app.js"></script>
     </head>
     <body>
+      <nav>
+        <li><a href="/">Play Tic Tac Toe</a></li>
+        <li><a href="/about">About</a></li>
+      </nav>
 
       <section class="body">
         <%= yield %>
