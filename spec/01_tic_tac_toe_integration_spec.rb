@@ -8,12 +8,6 @@ describe './app.rb - Tic Tac Toe Sinatra' do
         get '/'
         expect(last_response).to be_ok
       end
-
-      it 'initializes a new instance of TicTacToe' do
-        expect(TicTacToe).to receive(:new)
-
-        get '/'
-      end
     end
 
     context 'HTML for GET / - A Game Board' do
@@ -27,7 +21,7 @@ describe './app.rb - Tic Tac Toe Sinatra' do
         visit '/'
 
         expect(page).to have_selector("form")
-        expect(page).to have_selector("form[action='/']")
+        expect(page).to have_selector("form[action='/turn']")
         expect(page).to have_selector("form[method='POST']")
       end
 
@@ -75,7 +69,7 @@ describe './app.rb - Tic Tac Toe Sinatra' do
       it 'submitting the form works' do
         visit '/'
 
-        click_button "submit"
+        click_button "Submit Turn"
 
         expect(page.status_code).to eq(200)
       end
@@ -84,10 +78,10 @@ describe './app.rb - Tic Tac Toe Sinatra' do
 
   describe 'POST / - Submitting a Move' do
     context 'Updating the game based on form input' do
-      it 'initializes an instance of TicTacToe' do
-        expect(TicTacToe).to receive(:new)
+      it 'calls board_from_params with params' do
+        expect_any_instance_of(Application).to receive(:board_from_params).with({"0" => "", "1" => "X"})
 
-        post '/'
+        post '/turn', {"0" => "", "1" => "X"}
       end
 
       it 'sends `params` to the `#turns` method on the TicTacToe instance' do

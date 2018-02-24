@@ -1,6 +1,6 @@
-<h1>Welcome to Tic Tac Toe</h1>
+<h1>Welcome to Tic Tac Toe!</h1>
 
-<form action="/turn" method="post">
+<form action="/turn" method="POST">
 <table>
   <tr>
     <td><input type="text" name="0" value="<%= @board[0] %>" <%= "readonly" if (@board[0] != "" && @board[0]) %>></td>
